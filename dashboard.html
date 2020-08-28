@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="pageName">Profile Viewer | Dashboard</title>
+
+    <link href="css/bootstrap.min.css"" type="text/css" rel="stylesheet" />
+    <link href="css/font-awesome.min.css"" type="text/css" rel="stylesheet" />
+    <link href="css/site.css"" type="text/css" rel="stylesheet" />
+    <script src="js/jquery-3.5.1.min.js""></script>
+    <script src="js/jquery.validate.min.js""></script>
+    <script src="js/modernizr-2.8.3.js""></script>
+    <script src="js/bootstrap.min.js""></script>
+    <script src="js/app/app.js""></script>
+
+</head>
+<body style="background-color: #e5e5e5;">
+    <div class="loader">
+        <img src="images/loader.gif"" alt="" />
+    </div>
+    <div class="wrapper">
+        <div class="sidebar">
+            <h2>ADMIN</h2>
+            <ul id="asideNav">
+                <li><a href="javascript:void(0)" class="nav-anchor active arrow" onclick="UpdateSelect(event, 'dashboard')"><i class="fa fa-home" aria-hidden="true"></i>Dashboard</a></li>
+                <li><a href="profile.html" class="nav-anchor" onclick="UpdateSelect(event, 'profile')"><i class="fa fa-user"></i>My Profile</a></li>
+                <li><a href="javascript:void(0)" class="nav-anchor" onclick="UpdateSelect(event, 'works')"><i class="fa fa-cog"></i>My Works</a></li>
+                <li><a href="javascript:void(0)" class="nav-anchor" onclick="UpdateSelect(event, 'business')"><i class="fa fa-cogs"></i>Manage Business</a></li>
+                <li><a href="javascript:void(0)" class="nav-anchor" onclick="UpdateSelect(event, 'users')"><i class="fa fa-user-plus"></i>Users</a></li>
+                <li><a href="javascript:void(0)" class="nav-anchor" onclick="UpdateSelect(event, 'Customers')"><i class="fa fa-user-circle"></i>Customers</a></li>
+                <li><a href="javascript:void(0)" class="nav-anchor" onclick="UpdateSelect(event, 'schedule')"><i class="fa fa-calendar"></i>Schedule</a></li>
+                <li><a href="login.html"><i class="fa fa-power-off"></i>Logout</a></li>
+            </ul>
+        </div>
+        <div class="main-content">            
+            <div class="base-view">
+                <h4 class="site_color">Dashboard</h4>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

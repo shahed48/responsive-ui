@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Viewer | Login</title>
+    <link href="css/bootstrap.min.css"" type="text/css" rel="stylesheet" />
+    <link href="css/font-awesome.min.css"" type="text/css" rel="stylesheet" />
+    <link href="css/site.css"" type="text/css" rel="stylesheet" />
+    <script src="js/jquery-3.5.1.min.js""></script>
+    <script src="js/jquery.validate.min.js""></script>
+    <script src="js/modernizr-2.8.3.js""></script>
+    <script src="js/bootstrap.min.js""></script>
+    <script src="js/app/app.js""></script>
+</head>
+<body style="margin:0; padding:0; background-color: rgba(45,137,239,0.7);">
+    <div>
+        <style type="text/css">
+            .login-box {
+                margin: 0;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                -ms-transform: translate(-50%, -50%);
+                transform: translate(-50%, -50%);
+                background-color: rgba(255,255,255,1);
+                border-radius: 5px;
+                padding: 3rem;
+                box-shadow: 5px 10px 18px rgba(0,0,0,0.4);
+                min-width: 350px !important;
+                width: 30%;
+            }
+            .checkbox{
+                line-height: 30px;
+            }
+        </style>
+        
+        <div class="login-box">
+            <div class="row">
+                <div class="col-md-12">
+                    <section id="loginForm">
+                        @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                        {
+                            <h2 class="text-center">@ViewBag.Title</h2>
+                            @Html.AntiForgeryToken()
+                            <h6 class="text-center">Use your local account to login</h6>
+                            <hr />
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
+                                <div class="col-md-12">
+                                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
+                                <div class="col-md-12">
+                                    @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="row ml-0 mr-0">
+                                <div class="col-md-6">
+                                    <div class="checkbox">
+                                        @Html.CheckBoxFor(m => m.RememberMe)
+                                        @Html.LabelFor(m => m.RememberMe)
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <button type="submit" class="btn btn-primary pull-right"><i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp;Login</button>
+                                </div>
+                            </div>
+                            <br/>
+                            <div class="form-group">
+                                <div class="col-md-12">
+                                    <a href="javascript:alert('Under Construction')">Register a new account</a>
+                                </div>
+                            </div>
+                        }
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

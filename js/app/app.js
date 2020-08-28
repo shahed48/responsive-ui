@@ -22,3 +22,14 @@
 // function Logout() {
 //     document.getElementById('logoutForm').submit();
 // }
+
+function ToggleNavigation(e){
+    if($('.main-content').hasClass('main-content-max')){
+        $('.main-content').removeClass('main-content-max');
+        $('.sidebar').removeClass('sidebar-min');
+    }
+    else{
+        $('.main-content').addClass('main-content-max');
+        $('.sidebar').addClass('sidebar-min');
+    }
+}

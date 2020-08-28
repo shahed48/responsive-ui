@@ -33,7 +33,15 @@
                 <li><a href="login.html"><i class="fa fa-power-off"></i>Logout</a></li>
             </ul>
         </div>
-        <div class="main-content">            
+        <div class="main-content">
+            <div class="top-bar d-flex pt-2 pb-2">
+                <div class="col-md-2">
+                    <button class="btn btn-outline-primary" onclick="ToggleNavigation(event)"><i class="fa fa-bars" aria-hidden="true"></i></button>
+                </div>
+                <div class="col-md-3 offset-md-7">
+                    <input type="text" placeholder="Search Here..." id="searchGlobal" class="form-control pull-right"/>
+                </div>
+            </div>            
             <div class="base-view">
                 <h4 class="site_color">Dashboard</h4>
             </div>

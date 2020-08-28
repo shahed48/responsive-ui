@@ -21,19 +21,27 @@
     </div>
     <div class="wrapper">
         <div class="sidebar">
-            <h2>ADMIN</h2>
+            <h2>AD</h2>
             <ul id="asideNav">
-                <li><a href="dashboard.html" class="nav-anchor" onclick="UpdateSelect(event, 'dashboard')"><i class="fa fa-home" aria-hidden="true"></i>Dashboard</a></li>
-                <li><a href="profile.html" class="nav-anchor" onclick="UpdateSelect(event, 'profile')"><i class="fa fa-user"></i>My Profile</a></li>
-                <li><a href="works.html" class="nav-anchor active arrow" onclick="UpdateSelect(event, 'works')"><i class="fa fa-cog"></i>My Works</a></li>
-                <li><a href="javascript:void(0)" class="nav-anchor" onclick="UpdateSelect(event, 'business')"><i class="fa fa-cogs"></i>Manage Business</a></li>
-                <li><a href="javascript:void(0)" class="nav-anchor" onclick="UpdateSelect(event, 'users')"><i class="fa fa-user-plus"></i>Users</a></li>
-                <li><a href="javascript:void(0)" class="nav-anchor" onclick="UpdateSelect(event, 'Customers')"><i class="fa fa-user-circle"></i>Customers</a></li>
-                <li><a href="javascript:void(0)" class="nav-anchor" onclick="UpdateSelect(event, 'schedule')"><i class="fa fa-calendar"></i>Schedule</a></li>
-                <li><a href="login.html"><i class="fa fa-power-off"></i>Logout</a></li>
+                <li><a href="dashboard.html" class="nav-anchor" onclick="UpdateSelect(event, 'dashboard')"><i class="fa fa-home" aria-hidden="true"></i><label class="nav-label">Dashboard</label></a></li>
+                <li><a href="profile.html" class="nav-anchor" onclick="UpdateSelect(event, 'profile')"><i class="fa fa-user"></i><label class="nav-label">My Profile</label></a></li>
+                <li><a href="works.html" class="nav-anchor active arrow" onclick="UpdateSelect(event, 'works')"><i class="fa fa-cog"></i><label class="nav-label">My Works</label></a></li>
+                <li><a href="javascript:void(0)" class="nav-anchor" onclick="UpdateSelect(event, 'business')"><i class="fa fa-cogs"></i><label class="nav-label">Manage Business</label></a></li>
+                <li><a href="javascript:void(0)" class="nav-anchor" onclick="UpdateSelect(event, 'users')"><i class="fa fa-user-plus"></i><label class="nav-label">Users</label></a></li>
+                <li><a href="javascript:void(0)" class="nav-anchor" onclick="UpdateSelect(event, 'Customers')"><i class="fa fa-user-circle"></i><label class="nav-label">Customers</label></a></li>
+                <li><a href="javascript:void(0)" class="nav-anchor" onclick="UpdateSelect(event, 'schedule')"><i class="fa fa-calendar"></i><label class="nav-label">Schedule</label></a></li>
+                <li><a href="javascript:logout()"><i class="fa fa-power-off"></i><label class="nav-label">Logout</label></a></li>
             </ul>
         </div>
-        <div class="main-content">            
+        <div class="main-content">
+            <div class="top-bar d-flex pt-2 pb-2">
+                <div class="col-md-2">
+                    <a class="nav-bars" onclick="ToggleNavigation(event)"><i class="fa fa-bars" aria-hidden="true"></i></a>
+                </div>
+                <div class="col-md-3 offset-md-7">
+                    <input type="text" placeholder="Search Here..." id="searchGlobal" class="form-control pull-right"/>
+                </div>
+            </div>            
             <div class="base-view">
                 <h4 class="site_color">Works</h4>
                 <h6 class="site_color">Md Shahjahan : Administrator</h6>
@@ -59,6 +67,9 @@
                         </div>
                     </div>
                 </div>
+            </div>
+            <div class="footer">
+                <p>&copy; - Copyright reserved to Shahjahan, 2020</p>
             </div>
 
             <script type="text/javascript">                

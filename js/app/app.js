@@ -1,4 +1,28 @@
-﻿
+﻿// using localstorage to register and login and display data
+// principalUser cookie name authUser
+//check login status
+
+var path = window.location.pathname.toString();
+var pageName = path.substr(path.lastIndexOf('/')+1);
+var cleanName = pageName.substr(0, pageName.indexOf('.'));
+if(localStorage.getItem('authUser') === null){
+    if(cleanName !== 'login')
+        window.location.href = 'login.html';
+}
+//data for user Profile
+var userProfile = {
+    primaryEmail:'admin@gmail.com',
+    altEmail: 'shahjahan.cseku11@gmail.com',
+    firstName: 'Md',
+    lastName: 'Shahjahan',
+    phoneNum: '01616505040',
+    altNum: '01910944844'
+}
+if(localStorage.getItem('userInfo') === null)
+    localStorage.setItem('userInfo', JSON.stringify(userProfile));
+//END Checking
+
+
 // function UpdateSelect(e, selection) {
 //     $(".nav-anchor").each(function (index, e) {
 //         if ($(this).hasClass('active')) {
@@ -27,9 +51,27 @@ function ToggleNavigation(e){
     if($('.main-content').hasClass('main-content-max')){
         $('.main-content').removeClass('main-content-max');
         $('.sidebar').removeClass('sidebar-min');
+        $('.nav-label').removeClass('d-none');
     }
     else{
         $('.main-content').addClass('main-content-max');
         $('.sidebar').addClass('sidebar-min');
+        $('.nav-label').addClass('d-none');
     }
+}
+
+function login(){
+    var userName = document.getElementById('emailAddress').value;
+    var password = document.getElementById('password').value;
+    var authUser = {
+        userName: userName,
+        password: password
+    };
+    localStorage.setItem('authUser', authUser);
+    window.location.href = 'dashboard.html';
+}
+
+function logout(){
+    localStorage.clear();
+    window.location.href='login.html';
 }

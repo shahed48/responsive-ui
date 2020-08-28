@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="pageName">Profile Viewer | Works</title>
+
+    <link href="css/bootstrap.min.css"" type="text/css" rel="stylesheet" />
+    <link href="css/font-awesome.min.css"" type="text/css" rel="stylesheet" />
+    <link href="css/site.css"" type="text/css" rel="stylesheet" />
+    <script src="js/jquery-3.5.1.min.js""></script>
+    <script src="js/jquery.validate.min.js""></script>
+    <script src="js/modernizr-2.8.3.js""></script>
+    <script src="js/bootstrap.min.js""></script>
+    <script src="js/app/app.js""></script>
+
+</head>
+<body style="background-color: #e5e5e5;">
+    <div class="loader">
+        <img src="images/loader.gif"" alt="" />
+    </div>
+    <div class="wrapper">
+        <div class="sidebar">
+            <h2>ADMIN</h2>
+            <ul id="asideNav">
+                <li><a href="dashboard.html" class="nav-anchor" onclick="UpdateSelect(event, 'dashboard')"><i class="fa fa-home" aria-hidden="true"></i>Dashboard</a></li>
+                <li><a href="profile.html" class="nav-anchor" onclick="UpdateSelect(event, 'profile')"><i class="fa fa-user"></i>My Profile</a></li>
+                <li><a href="works.html" class="nav-anchor active arrow" onclick="UpdateSelect(event, 'works')"><i class="fa fa-cog"></i>My Works</a></li>
+                <li><a href="javascript:void(0)" class="nav-anchor" onclick="UpdateSelect(event, 'business')"><i class="fa fa-cogs"></i>Manage Business</a></li>
+                <li><a href="javascript:void(0)" class="nav-anchor" onclick="UpdateSelect(event, 'users')"><i class="fa fa-user-plus"></i>Users</a></li>
+                <li><a href="javascript:void(0)" class="nav-anchor" onclick="UpdateSelect(event, 'Customers')"><i class="fa fa-user-circle"></i>Customers</a></li>
+                <li><a href="javascript:void(0)" class="nav-anchor" onclick="UpdateSelect(event, 'schedule')"><i class="fa fa-calendar"></i>Schedule</a></li>
+                <li><a href="login.html"><i class="fa fa-power-off"></i>Logout</a></li>
+            </ul>
+        </div>
+        <div class="main-content">            
+            <div class="base-view">
+                <h4 class="site_color">Works</h4>
+                <h6 class="site_color">Md Shahjahan : Administrator</h6>
+                <br />
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="table-content">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr class="heading">
+                                        <th>SL</th>
+                                        <th>Task</th>
+                                        <th>Description</th>
+                                        <th>Assigned To</th>
+                                        <th>End Date</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="worklog">
+                                </tbody>
+
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <script type="text/javascript">                
+                var worksData = [{"Id":1, "TaskName": "Bugfix", "TaskDescription": "Fix bugs from last deployment", "NameOfAssignee" : "Md. Shahjahan", "EndDate" : "29/08/2020", "Status": "In Progress"},
+                                {"Id":2, "TaskName": "Feature Implement", "TaskDescription": "Implement feature that discussed 23rd August", "NameOfAssignee" : "Md. Shahjahan", "EndDate" : "30/08/2020", "Status": "In Progress"},
+                                {"Id":3, "TaskName": "R&D", "TaskDescription": "Research on the mars problem and find a solution", "NameOfAssignee" : "Md. Shahjahan", "EndDate" : "02/09/2020", "Status": "In Progress"},
+                                {"Id":4, "TaskName": "Development", "TaskDescription": "Help juniors to overcome their barriers", "NameOfAssignee" : "Md. Shahjahan", "EndDate" : "28/08/2020", "Status": "Ready for test"},
+                                {"Id":5, "TaskName": "Modification", "TaskDescription": "Modify UI according to clients change", "NameOfAssignee" : "Md. Shahjahan", "EndDate" : "27/08/2020", "Status": "Closed"}]
+                
+                var tBody = '';
+                $.each(worksData, function (index, data) {
+                    var row = '<tr>';
+                    row += '<td class="text-center">' + data.Id + '</td>';
+                    row += '<td>' + data.TaskName + '</td>';
+                    row += '<td>' + data.TaskDescription + '</td>';
+                    row += '<td class="text-center">' + data.NameOfAssignee + '</td>';
+                    row += '<td class="text-center">' + data.EndDate + '</td>';
+                    row += '<td class="text-center">' + data.Status + '</td>';
+                    tBody += row;
+                });
+                $('#worklog').empty().append(tBody);
+                // $.ajax({
+                //     type: 'POST',
+                //     url: 'js/app/worksdata.json',
+                //     success: function (resp) {
+                //         var tBody = '';
+                //         $.each(resp, function (index, data) {
+                //             console.log(data);
+                //             var row = '<tr>';
+                //             row += '<td class="text-center">' + data.Id + '</td>';
+                //             row += '<td>' + data.TaskName + '</td>';
+                //             row += '<td>' + data.TaskDescription + '</td>';
+                //             row += '<td class="text-center">' + data.NameOfAssignee + '</td>';
+                //             row += '<td class="text-center">' + data.EndDate + '</td>';
+                //             row += '<td class="text-center">' + data.Status + '</td>';
+                //             tBody += row;
+                //         });
+                //         $('#worklog').empty().append(tBody);
+                //     },
+                //     error: function (resp) {
+                //         alert(resp);
+                //     }
+                // });
+            </script>
+            </div>
+            
+            <script type="text/javascript">
+                function EnableForEdit(e) {
+                    e.preventDefault()
+                    $('#ParimaryEmailAddress').prop('disabled', false);
+                    $('#AlternateEmailAddress').prop('disabled', false);
+                    $('#FirstName').prop('disabled', false);
+                    $('#LastName').prop('disabled', false);
+                    $('#PrimaryPhone').prop('disabled', false);
+                    $('#AlternatePhone').prop('disabled', false);
+            
+                    $('#saveEdit').removeClass('d-none');
+                    $("#cancelEdit").removeClass('d-none');
+                    $("#Edit").hide();
+                }
+            
+                function DisableForEdit(e) {
+                    e.preventDefault()
+                    $('#ParimaryEmailAddress').prop('disabled', true);
+                    $('#AlternateEmailAddress').prop('disabled', true);
+                    $('#FirstName').prop('disabled', true);
+                    $('#LastName').prop('disabled', true);
+                    $('#PrimaryPhone').prop('disabled', true);
+                    $('#AlternatePhone').prop('disabled', true);
+            
+                    $('#saveEdit').addClass('d-none');
+                    $("#cancelEdit").addClass('d-none');
+                    $("#Edit").show();
+                }
+            
+                // function SaveChanges(e) {
+                //     e.preventDefault();
+                //     $('.loader').show();
+                //     var profileViewModel = {
+                //         Id: $('#Id').val(),
+                //         ParimaryEmailAddress: $('#ParimaryEmailAddress').val(),
+                //         AlternateEmailAddress: $('#AlternateEmailAddress').val(),
+                //         FirstName: $('#FirstName').val(),
+                //         LastName: $('#LastName').val(),
+                //         PrimaryPhone: $('#PrimaryPhone').val(),
+                //         AlternatePhone: $('#AlternatePhone').val()
+                //     };
+                //     $.ajax({
+                //         type: 'POST',
+                //         url: '/Home/UpdateProfile',
+                //         data: { model: profileViewModel },
+                //         success: function (resp) {
+                //             $('.loader').hide();
+                //             alert(resp);
+                //         },
+                //         error: function (resp) {
+                //             $('.loader').hide();
+                //             alert(resp);
+                //         }
+                //     });
+                // }
+            </script>
+        </div>
+    </div>
+
+</body>
+</html>

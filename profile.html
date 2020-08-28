@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="pageName">Profile Viewer | Profile</title>
+
+    <link href="css/bootstrap.min.css"" type="text/css" rel="stylesheet" />
+    <link href="css/font-awesome.min.css"" type="text/css" rel="stylesheet" />
+    <link href="css/site.css"" type="text/css" rel="stylesheet" />
+    <script src="js/jquery-3.5.1.min.js""></script>
+    <script src="js/jquery.validate.min.js""></script>
+    <script src="js/modernizr-2.8.3.js""></script>
+    <script src="js/bootstrap.min.js""></script>
+    <script src="js/app/app.js""></script>
+
+</head>
+<body style="background-color: #e5e5e5;">
+    <div class="loader">
+        <img src="images/loader.gif"" alt="" />
+    </div>
+    <div class="wrapper">
+        <div class="sidebar">
+            <h2>ADMIN</h2>
+            <ul id="asideNav">
+                <li><a href="dashboard.html" class="nav-anchor" onclick="UpdateSelect(event, 'dashboard')"><i class="fa fa-home" aria-hidden="true"></i>Dashboard</a></li>
+                <li><a href="profile.html" class="nav-anchor active arrow" onclick="UpdateSelect(event, 'profile')"><i class="fa fa-user"></i>My Profile</a></li>
+                <li><a href="works.html" class="nav-anchor" onclick="UpdateSelect(event, 'works')"><i class="fa fa-cog"></i>My Works</a></li>
+                <li><a href="javascript:void(0)" class="nav-anchor" onclick="UpdateSelect(event, 'business')"><i class="fa fa-cogs"></i>Manage Business</a></li>
+                <li><a href="javascript:void(0)" class="nav-anchor" onclick="UpdateSelect(event, 'users')"><i class="fa fa-user-plus"></i>Users</a></li>
+                <li><a href="javascript:void(0)" class="nav-anchor" onclick="UpdateSelect(event, 'Customers')"><i class="fa fa-user-circle"></i>Customers</a></li>
+                <li><a href="javascript:void(0)" class="nav-anchor" onclick="UpdateSelect(event, 'schedule')"><i class="fa fa-calendar"></i>Schedule</a></li>
+                <li><a href="login.html"><i class="fa fa-power-off"></i>Logout</a></li>
+            </ul>
+        </div>
+        <div class="main-content">            
+            <div class="base-view">
+                <h4 class="site_color">My Profile</h4>
+                <h6 class="site_color">Md Shahjahan : Administrator</h6>
+            
+                    <div class="row mt-2 mb-2">
+                        <div class="col-md-12">
+                            <button class="btn btn-primary btn-sm pull-right" id="Edit" onclick="EnableForEdit(event)"><i class="fa fa-edit"></i>&nbsp;Edit</button>
+                            <button type="submit" id="saveEdit" class="btn btn-success btn-sm d-none pull-right ml-2" onclick="SaveChanges(event)"><i class="fa fa-save"></i>&nbsp;Save</button>
+                            <button type="button" id="cancelEdit" class="btn btn-danger btn-sm d-none pull-right" onclick="DisableForEdit(event)"><i class="fa fa-close"></i>&nbsp;Cancel</button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <p class="card-header">Profile Picture</p>
+                            <div class="profile-picture-box">
+                                <img src="images/dp.jpg" alt="profile-pic" />
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <p class="card-header">Basic Information</p>
+                            <div class="profile-content">
+            
+                                <div class="form-horizontal">
+                                    <input type="hidden" id="Id" value="" />
+                                    <div class="row mr-1 ml-1">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="prof-content-size">Email Address (Username) <a>Change Username</a></label>
+                                                <div>
+                                                    <input type="email" id="ParimaryEmailAddress" class="form-control prof-content-size" disabled />
+                                                </div>
+                                            </div>
+            
+                                            <div class="form-group">
+                                                <label class="prof-content-size">First Name</label>
+                                                <div>
+                                                    <input type="text" id="FirstName" class="form-control prof-content-size" disabled />
+                                                </div>
+                                            </div>
+            
+                                            <div class="form-group">
+                                                <label class="prof-content-size">Preffered Phone Number</label>
+                                                <div>
+                                                    <input type="text" id="PrimaryPhone" class="form-control prof-content-size" disabled />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="prof-content-size">Alternate Email address (Optional)</label>
+                                                <div>
+                                                    <input type="text" id="AlternateEmailAddress" class="form-control prof-content-size" disabled />
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="prof-content-size">Last Name</label>
+                                                <div>
+                                                    <input type="text" id="LastName" class="form-control prof-content-size" disabled />
+                                                </div>
+                                            </div>
+            
+                                            <div class="form-group">
+                                                <label class="prof-content-size">Alternate Phone Number (Optional)</label>
+                                                <div>
+                                                    <input type="text" id="AlternatePhone" class="form-control prof-content-size" disabled />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>                    
+                            </div>
+                        </div>
+                    </div>
+            </div>
+            
+            <script type="text/javascript">
+                function EnableForEdit(e) {
+                    e.preventDefault()
+                    $('#ParimaryEmailAddress').prop('disabled', false);
+                    $('#AlternateEmailAddress').prop('disabled', false);
+                    $('#FirstName').prop('disabled', false);
+                    $('#LastName').prop('disabled', false);
+                    $('#PrimaryPhone').prop('disabled', false);
+                    $('#AlternatePhone').prop('disabled', false);
+            
+                    $('#saveEdit').removeClass('d-none');
+                    $("#cancelEdit").removeClass('d-none');
+                    $("#Edit").hide();
+                }
+            
+                function DisableForEdit(e) {
+                    e.preventDefault()
+                    $('#ParimaryEmailAddress').prop('disabled', true);
+                    $('#AlternateEmailAddress').prop('disabled', true);
+                    $('#FirstName').prop('disabled', true);
+                    $('#LastName').prop('disabled', true);
+                    $('#PrimaryPhone').prop('disabled', true);
+                    $('#AlternatePhone').prop('disabled', true);
+            
+                    $('#saveEdit').addClass('d-none');
+                    $("#cancelEdit").addClass('d-none');
+                    $("#Edit").show();
+                }
+            
+                function SaveChanges(e) {
+                    e.preventDefault();
+                    $('.loader').show();
+                    var profileViewModel = {
+                        Id: $('#Id').val(),
+                        ParimaryEmailAddress: $('#ParimaryEmailAddress').val(),
+                        AlternateEmailAddress: $('#AlternateEmailAddress').val(),
+                        FirstName: $('#FirstName').val(),
+                        LastName: $('#LastName').val(),
+                        PrimaryPhone: $('#PrimaryPhone').val(),
+                        AlternatePhone: $('#AlternatePhone').val()
+                    };
+                    $.ajax({
+                        type: 'POST',
+                        url: '/Home/UpdateProfile',
+                        data: { model: profileViewModel },
+                        success: function (resp) {
+                            $('.loader').hide();
+                            alert(resp);
+                        },
+                        error: function (resp) {
+                            $('.loader').hide();
+                            alert(resp);
+                        }
+                    });
+                }
+            </script>
+        </div>
+    </div>
+
+</body>
+</html>
